@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virginia James Designs - Order Form</title>
+    <link rel="stylesheet" href="Order form.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo"><a href="index.html"><img src="vjd-logo.png" alt="VJD Logo"></a></h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="SERVICES.html">SERVICE</a></li>
+                    <li><a href="CATEGORIES.html">CATEGORIES</a></li>
+                    <li><a href="ABOUT.html">ABOUT</a></li>
+                    <li><a href="GALLERY.html">GALLERY</a></li>
+                   
+                </ul>
+            </div>
+
+           
+        </div>
+
+        <section class="hero">
+            <div class="form-card">
+                <div class="form-intro">
+                    <span>Virginia James Designs</span>
+                    <h1>Order Your Design</h1>
+                    <p>Share your measurements, style preferences, and delivery details for a custom outfit include your location.</p>
+                </div>
+
+                <form id="orderForm" class="order-form">
+                    <input id="fullName" name="fullName" class="input-field" type="text" placeholder="Full Name" required>
+                    <input id="phoneNumber" name="phoneNumber" class="input-field" type="tel" placeholder="Phone / WhatsApp Number" required>
+
+                    <select id="clothingType" name="clothingType" class="input-field" required>
+                        <option value="">Choose Clothing Type</option>
+                        <option>Dress</option>
+                        <option>Suit</option>
+                        <option>School Uniform</option>
+                        <option>Shirt</option>
+                        <option>Skirt</option>
+                    </select>
+
+                    <textarea id="orderDetails" name="orderDetails" class="input-field textarea" placeholder="Enter measurements or design details" required></textarea>
+
+                    <label class="file-label" for="sampleImage">Sample image from gallery (optional)</label>
+                    <input id="sampleImage" name="sample" class="input-field" type="file" accept="image/*">
+
+                    <input id="deliveryDate" name="deliveryDate" class="input-field" type="date" required>
+
+                    <button class="button" type="submit">Submit Order</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="page">
+            <h2 class="contact"><a href="CONTACT US .html">CONTACT US</a></h2>
+        </section>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script>
+        const orderForm = document.getElementById('orderForm');
+        const fullNameInput = document.getElementById('fullName');
+        const phoneInput = document.getElementById('phoneNumber');
+        const clothingTypeInput = document.getElementById('clothingType');
+        const orderDetailsInput = document.getElementById('orderDetails');
+        const sampleImageInput = document.getElementById('sampleImage');
+        const deliveryDateInput = document.getElementById('deliveryDate');
+
+        const businessWhatsAppNumber = '265884356327'; // Replace with your business number in international format without +
+
+        function formatWhatsAppMessage() {
+            const fullName = fullNameInput.value.trim();
+            const phone = phoneInput.value.trim();
+            const clothingType = clothingTypeInput.value;
+            const orderDetails = orderDetailsInput.value.trim();
+            const deliveryDate = deliveryDateInput.value;
+            const sampleImageFile = sampleImageInput.files[0];
+            const sampleImageText = sampleImageFile ? sampleImageFile.name : 'No sample image selected';
+
+            return encodeURIComponent(
+                `New order request from Virginia James Designs website:\n` +
+                `Full name: ${fullName}\n` +
+                `Phone / WhatsApp: ${phone}\n` +
+                `Clothing type: ${clothingType}\n` +
+                `Measurements / design details: ${orderDetails}\n` +
+                `Sample image: ${sampleImageText}\n` +
+                `Delivery date: ${deliveryDate}`
+            );
+        }
+
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const message = formatWhatsAppMessage();
+            const whatsappUrl = `https://wa.me/${businessWhatsAppNumber}?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
