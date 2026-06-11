@@ -49,6 +49,10 @@
         <div class="gallery-modal-content">
             <button type="button" class="close-modal" aria-label="Close image preview">×</button>
             <img class="modal-image" src="" alt="">
+            <div class="modal-actions">
+                <button type="button" class="modal-button like-button" aria-label="Like image">♡ Like</button>
+                <a class="modal-button order-button" href="Order form.html">Order</a>
+            </div>
         </div>
     </div>
 
@@ -206,12 +210,15 @@
             const modal = document.getElementById('gallery-modal');
             const modalImage = modal.querySelector('.modal-image');
             const closeModal = modal.querySelector('.close-modal');
+            const likeButton = modal.querySelector('.like-button');
 
             function openGalleryModal(src, alt) {
                 modalImage.src = src;
                 modalImage.alt = alt;
                 modal.setAttribute('aria-hidden', 'false');
                 modal.classList.add('visible');
+                likeButton.textContent = '♡ Like';
+                likeButton.classList.remove('liked');
             }
 
             function hideGalleryModal() {
@@ -221,6 +228,11 @@
                 modalImage.alt = '';
             }
 
+            likeButton.addEventListener('click', function () {
+                const liked = likeButton.classList.toggle('liked');
+                likeButton.textContent = liked ? '♥ Liked' : '♡ Like';
+            });
+
             closeModal.addEventListener('click', hideGalleryModal);
             modal.addEventListener('click', function(event) {
                 if (event.target === modal) {
@@ -229,6 +241,89 @@
             });
         });
     </script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const STORAGE_KEY = 'linkClickCounts';
+            const SERVER_URL = 'http://localhost:3000';
+
+            function loadCounts() {
+                try {
+                    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+                } catch (e) {
+                    return {};
+                }
+            }
+
+            function saveCounts(obj) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+                } catch (e) {
+                    console.warn('Failed to save link counts locally', e);
+                }
+            }
+
+            function sendCountToServer(href) {
+                const timestamp = new Date().toISOString();
+                fetch(SERVER_URL + '/api/link-click', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        href: href,
+                        timestamp: timestamp
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log('✓ Server recorded link click:', data);
+                })
+                .catch(err => {
+                    console.warn('⚠ Could not reach server:', err.message);
+                });
+            }
+
+            const counts = loadCounts();
+
+            // Initialize count entries for every anchor on the page
+            document.querySelectorAll('a[href]').forEach((a) => {
+                const href = a.getAttribute('href');
+                if (!href) return;
+                if (!counts[href]) counts[href] = { count: 0, lastClicked: null };
+
+                a.addEventListener('click', function () {
+                    counts[href].count += 1;
+                    counts[href].lastClicked = new Date().toISOString();
+                    saveCounts(counts);
+                    
+                    // Send to server
+                    sendCountToServer(href);
+                }, false);
+            });
+
+            // Expose a simple getter for debugging
+            window.getLinkCounts = function () {
+                return loadCounts();
+            };
+
+            // Fetch and display server-side stats (optional)
+            window.getServerCounts = function () {
+                fetch(SERVER_URL + '/api/link-counts')
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('📊 Server-side link counts:', data);
+                        return data;
+                    })
+                    .catch(err => console.warn('⚠ Could not fetch server counts:', err.message));
+            };
+
+            console.info('Link click counter initialized');
+            console.info('🖱️ Local counts:', window.getLinkCounts());
+            console.info('💡 To view server-side stats, call: window.getServerCounts()');
+        });
+    </script>
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="search.js"></script>
 </body>
