@@ -10,7 +10,7 @@
         radial-gradient(ellipse at 40% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
         #000;
     background-size: cover;
-    height: 900vh;  
+    height: 630vh;  
 }
 .navbar{
     width: 100%;
@@ -414,8 +414,8 @@ ul li a:hover{
     }
 
     .modal-image {
-        width: 650px;
-        height: 700px;
+        width: 400px;
+        height: 550px;
         max-width: 100%;
         max-height: 100%;
         object-fit:fill;
@@ -443,13 +443,63 @@ ul li a:hover{
         background: rgba(255, 255, 255, 0.25);
     }
 
+    .modal-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 18px;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .modal-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 16px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+
+    .modal-button:hover {
+        background: rgba(255, 183, 71, 0.18);
+        transform: translateY(-1px);
+    }
+
+    .modal-button:focus {
+        outline: 2px solid #ffb347;
+        outline-offset: 2px;
+    }
+
+    .like-button.liked {
+        background: rgba(255, 71, 71, 0.18);
+        border-color: rgba(255, 71, 71, 0.4);
+    }
+
+    .order-button {
+        background: #ff7200;
+        border-color: #ff7200;
+        color: #000;
+    }
+
+    .order-button:hover {
+        background: #ff9c38;
+    }
+
     @media (max-width: 900px) {
         .gallery-card img {
             height: 120px;
         }
         .modal-image {
-            width: 130vh;
-            height: 200vh;
+            width: min(100vw, 600px);
+            height: min(100vh, 700px);
         }
     }
 
@@ -509,9 +559,10 @@ ul li a:hover{
             height: min(80vh, 400px);
         }
     }
+    
         text-align: center;
         margin-bottom: 10px;
-    }
+    
     .menu {
         width: 100% !important;
     }
@@ -545,7 +596,7 @@ ul li a:hover{
     .form h2 {
         width: 100% !important;
     }
-}
+
 
 @media (max-width: 600px) {
     .navbar {
