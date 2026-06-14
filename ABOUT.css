@@ -391,6 +391,7 @@ p{
   .menu ul li {
     margin: 8px !important;
     text-align: center !important;
+    line-spacing: 2px !important;
   }
   .gallery-grid,
   .service-cards,
