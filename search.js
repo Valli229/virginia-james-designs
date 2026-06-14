@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResultsContainer.style.display = 'block';
     }
 
-    function showMaximizedImage(src, alt) {
+    function showMaximizedImage(src, alt, categoryName = '') {
         let modal = document.getElementById('image-modal');
         if (!modal) {
             modal = document.createElement('div');
@@ -207,25 +207,34 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.appendChild(modal);
         }
 
+        const orderLabel = categoryName ? `🛍️ Order ${categoryName}` : '🛍️ Order';
         const modalContent = `
             <div class="image-modal-content">
                 <span class="close-modal">&times;</span>
                 <img class="maximized-image" src="${src}" alt="${alt}">
+                <button class="action-btn modal-order-btn" type="button">${orderLabel}</button>
             </div>
         `;
         modal.innerHTML = modalContent;
-        modal.style.display = 'flex';
+        modal.classList.add('active');
 
         const closeBtn = modal.querySelector('.close-modal');
         closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
+            modal.classList.remove('active');
         });
 
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
-                modal.style.display = 'none';
+                modal.classList.remove('active');
             }
         });
+
+        const orderBtn = modal.querySelector('.modal-order-btn');
+        if (orderBtn) {
+            orderBtn.addEventListener('click', function() {
+                window.location.href = 'Order form.html';
+            });
+        }
     }
 
     function highlightMatches(searchTerm) {
@@ -312,6 +321,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2800);
     }
 
+    function getCategoryImages(categoryKey) {
+        const categoryTerms = {
+            'mens-wear': ['mens wear', 'men', 'gents', 'suit', 'shirt'],
+            'womens-wear': ['womens wear', 'women', 'female', 'dress', 'gown'],
+            'bridal': ['bridal', 'wedding', 'bride', 'gown'],
+            'interiors': ['machine', 'sewing', 'fabric', 'tailoring', 'curtain', 'cushion', 'interior'],
+            'school-uniforms': ['school uniform', 'school', 'uniform', 'student'],
+            'mixed-wear': ['mixed', 'women', 'men', 'wear', 'fashion', 'collection']
+        };
+        const terms = categoryTerms[categoryKey] || [categoryKey];
+
+        return imageCatalog.filter((image) => {
+            const searchableText = [image.src, image.alt, image.title, ...(image.keywords || [])].join(' ').toLowerCase();
+            return terms.some((term) => searchableText.includes(term));
+        });
+    }
+
     const photoActionBlocks = document.querySelectorAll('.photo-actions');
     photoActionBlocks.forEach((section) => {
         const likeBtn = section.querySelector('.like-btn');
@@ -353,10 +379,58 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        if (orderBtn) {
-            orderBtn.addEventListener('click', function() {
-                window.location.href = 'Order form.html';
+    });
+
+    const orderButtons = document.querySelectorAll('.order-btn');
+    orderButtons.forEach((btn) => {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const orderSrc = btn.dataset.orderSrc || '';
+            const serviceName = btn.dataset.serviceName || '';
+            const params = new URLSearchParams();
+            if (orderSrc) params.set('image', orderSrc);
+            if (serviceName) params.set('service', serviceName);
+            const target = 'Order form.html' + (params.toString() ? `?${params.toString()}` : '');
+            window.location.href = target;
+        });
+    });
+
+    const moreButtons = document.querySelectorAll('.more-btn');
+    moreButtons.forEach((btn) => {
+        btn.addEventListener('click', function() {
+            const card = btn.closest('.category-card');
+            if (!card) return;
+            const moreArea = card.querySelector('.more-images');
+            const categoryKey = card.id;
+            const categoryImages = getCategoryImages(categoryKey);
+            const isOpen = !moreArea.classList.contains('hidden');
+
+            if (isOpen) {
+                moreArea.classList.add('hidden');
+                btn.textContent = '📸 More';
+                return;
+            }
+
+            if (categoryImages.length === 0) {
+                moreArea.innerHTML = `<div class="no-more-images">No additional images available for this category.</div>`;
+            } else {
+                moreArea.innerHTML = `<div class="more-images-grid">${categoryImages.slice(0, 6).map((image) => `
+                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
+                `).join('')}</div>`;
+            }
+
+            moreArea.classList.remove('hidden');
+            btn.textContent = 'Hide';
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            const gridImages = moreArea.querySelectorAll('.more-images-grid img');
+            const categoryName = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
+            gridImages.forEach((image) => {
+                image.style.cursor = 'zoom-in';
+                image.addEventListener('click', function() {
+                    showMaximizedImage(this.src, this.alt, categoryName);
+                });
             });
-        }
+        });
     });
 });
