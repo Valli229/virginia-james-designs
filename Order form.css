@@ -211,6 +211,7 @@ select:focus{
     }
     .menu ul li{
         margin: 10px 8px;
+          text-align: center !important;
     }
     .srch{
         width: 160px;
