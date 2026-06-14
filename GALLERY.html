@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virginia James Designs</title>
+    <title>Virginia James Designers</title>
     <meta name="profile" content="https://valli229.github.io/virginia-james-designs/">
     <link rel="stylesheet" href="GALLERY.css">
     <link rel="icon" type="image/png" href="vjd-logo.png">
@@ -23,6 +23,7 @@
                     <li><a href="CATEGORIES.html">CATEGORIES</a></li>
                     <li><a href="ABOUT.html">ABOUT</a></li>
                    <li><a href="Order form.html">ORDER HERE</a></li>
+                    <li><a href="CONTACT US.html">CONTACT US</a></li>
                 </ul>
             </div>
 
@@ -42,7 +43,7 @@
         </div>
     </div>
     <section class="page">
-         <h2 class="contact"><a href="CONTACT US .html">CONTACT US</a></h2>
+         <h2 class="contact"><a href="CONTACT US.html">CONTACT US</a></h2>
     </section>
 
     <div id="gallery-modal" class="gallery-modal" role="dialog" aria-hidden="true">
@@ -199,7 +200,7 @@
                         <div class="gallery-label">${item.label}</div>
                     `;
                     card.addEventListener('click', () => {
-                        openGalleryModal(item.src, item.alt);
+                        openGalleryModal(item.src, item.alt, category.title);
                     });
                     grid.appendChild(card);
                 });
