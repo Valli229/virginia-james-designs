@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virginia James Designs</title>
-    <meta property="og:title" content="Virginia James Designs">
+    <title>Virginia James Designers</title>
+    <meta property="og:title" content="Virginia James Designers">
     <meta property="og:description" content="Fashion Design and Tailoring Services">
+    <meta name="profile" content="https://valli229.github.io/virginia-james-designs/">
     <meta property="og:image" content="https://valli229.github.io/virginia-james-designs/vjd-logo.png">
     <meta property="og:url" content="https://valli229.github.io/virginia-james-designs/">  
     <link rel="stylesheet" href="SERVICES.css">
@@ -27,6 +28,7 @@
                     <li><a href="ABOUT.html">ABOUT</a></li>
                    <li><a href="GALLERY.html">GALLERY</a></li>
                    <li><a href="Order form.html">ORDER</a></li>
+                   <li><a href="CONTACT US.html">CONTACT US</a></li>
                 </ul>
             </div>
 
@@ -35,38 +37,80 @@
                 <a href="#"><button class="btn">search</button></a>
             </div>
             <div class="content">
-                <h1>FASHION DESIGN &<br><span>TAILORING <br></span><i>COURSE</i></h1>
-                <p class="par">VJD is the home of fashion designing<br> where creating stylish and attractive clothing that reflect culture,
-                    ,<br> creativity, and modern trends are being nailed each and every day.<br>We also offer Tailoring course.<br>The course teaches learners how to design garments,<br> take body measurements, cut fabrics, sew different styles of clothing,<br> and use of sewing machines professionally.<br>The training encourages creativity, innovation and attention to detail while preparing<br> learners for self-employment or work in fashion businesses.</p>
-                    <div class="photo-card">
-                        <div class="CARD">
-                            <h3>BRIDAL WEAR</h3>
-                            <img class="featured-photo" src="BRIDAL-1.jpg" alt="BRIDAL WEAR">
+                <!-- EDITABLE: Services header -->
+                <h1>Our Services</h1>
+                <p class="par">Below are the main services we provide </p>
+
+                <!-- EDITABLE: List of services (easy to change) -->
+                <section id="services-list">
+                    <article class="service-item">
+                        <h3>Bridal & Occasion Wear</h3>
+                        <p class="par">Custom bridal gowns, fittings and embellishments. Example options: couture, embroidery, and custom tailoring.</p>
+                        <div class="photo-card">
+                            <div class="CARD">
+                                <img class="featured-photo" src="BRIDAL-1.jpg" alt="BRIDAL WEAR">
+                            </div>
+                            <div class="photo-actions">
+                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
+                                <button class="action-btn share-btn" type="button">🔗 Share</button>
+                                <button class="action-btn order-btn" data-service-name="Bridal & Occasion Wear" data-order-src="BRIDAL-1.jpg" type="button">🛍️ Order</button>
+                            </div>
                         </div>
-                        <div class="photo-actions">
-                            <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                            <button class="action-btn share-btn" type="button">🔗 Share</button>
-                            <button class="action-btn order-btn" type="button">🛍️ Order</button>
+                    </article>
+
+                    <article class="service-item">
+                        <h3>Men's Tailoring</h3>
+                        <p class="par">Bespoke suits, shirts and alterations for men.</p>
+                        <div class="photo-card">
+                            <div class="CARD">
+                                <img class="featured-photo" src="MENS-WEAR-6.jpg" alt="MENS WEAR">
+                            </div>
+                            <div class="photo-actions">
+                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
+                                <button class="action-btn share-btn" type="button">🔗 Share</button>
+                                <button class="action-btn order-btn" data-service-name="Men's Tailoring" data-order-src="MENS-WEAR-6.jpg" type="button">🛍️ Order</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="photo-card">
-                        <div class="CARD">
-                            <h4>MENS WEAR</h4>
-                            <img class="featured-photo" src="MENS-WEAR-6.jpg" alt="MENS WEAR">
+                    </article>
+                     <article class="service-item">
+                        <h3>Women Wear</h3>
+                        <p class="par">Bespoke Dresses, skirts and alterations for women.</p>
+                        <div class="photo-card">
+                            <div class="CARD">
+                                <img class="featured-photo" src="WOMEN-WEAR-22.jpg" alt="MENS WEAR">
+                            </div>
+                            <div class="photo-actions">
+                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
+                                <button class="action-btn share-btn" type="button">🔗 Share</button>
+                                <button class="action-btn order-btn" data-service-name="Women Wear" data-order-src="WOMEN-WEAR-22.jpg" type="button">🛍️ Order</button>
+                            </div>
                         </div>
-                        <div class="photo-actions">
-                            <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                            <button class="action-btn share-btn" type="button">🔗 Share</button>
-                            <button class="action-btn order-btn" type="button">🛍️ Order</button>
+                    </article>
+
+                    <article class="service-item">
+                        <h3>Training & Courses</h3>
+                        <p class="par">Short courses and workshops to learn tailoring and garment construction. Edit session details and pricing here.</p>
+                        <p class="par">(Add schedule and fees here when ready.)</p>
+                         <div class="photo-card">
+                            <div class="CARD">
+                                <img class="featured-photo" src="machine.jpg" alt="TRAINING & COURSES">
+                            </div>
+                            <div class="photo-actions">
+                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
+                                <button class="action-btn share-btn" type="button">🔗 Share</button>
+                                <button class="action-btn order-btn" data-service-name="Training & Courses" data-order-src="machine.jpg" type="button">🛍️ Order</button>
+                            </div>
                         </div>
-                    </div>
-                <p class="para">follow us on our facebook page below<br><a href="https://www.facebook.com/share/17eYXdBj17/">CLICK HERE!</a></p>
-                </div>
+                    </article>
+                </section>
+
+                <p class="para">Follow us on our Facebook page: <a href="https://www.facebook.com/share/17eYXdBj17/">CLICK HERE!</a></p>
+            </div>
             </div>
         </div>
     </div>
     <section class="page">
-         <h2 class="contact"><a href="CONTACT US .html">CONTACT US</a></h2>
+         <h2 class="contact"><a href="CONTACT US.html">CONTACT US</a></h2>
     </section>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="search.js"></script>
