@@ -298,6 +298,7 @@ body{
         max-width: 100%;
         padding: 10px;
         gap: 12px;
+        text-align: center;
     }
     .logo img{
         width: 95px;
@@ -380,6 +381,8 @@ body{
   .srch {
     width: 100% !important;
     max-width: 100% !important;
+       align-items: center !important;
+      
   }
   .menu ul {
     flex-wrap: wrap !important;
@@ -388,6 +391,7 @@ body{
   }
   .menu ul li {
     margin: 8px !important;
+      align-items: center !important; 
   }
   .gallery-grid,
   .service-cards,
