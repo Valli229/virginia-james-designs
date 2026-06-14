@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virginia James Designers</title>
+    <meta name="profile" content="https://valli229.github.io/virginia-james-designs/">
+    <link rel="stylesheet" href="CONTACT US.css">
+    <link rel="stylesheet" href="Photo order.css">
+    <link rel="icon" type="image/png" href="vjd-logo.png">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+               <h2 class="logo"><a href="index.html"><img src="vjd-logo.png"></a></h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                   <li><a href="index.html">HOME</a></li>
+                    <li><a href="SERVICES.html">SERVICE</a></li>
+                    <li><a href="CATEGORIES.html">CATEGORIES</a></li>
+                    <li><a href="ABOUT.html">ABOUT</a></li>
+                   <li><a href="GALLERY.html">GALLERY</a></li>
+                   <li><a href="Order form.html">ORDER HERE</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <section id="contact-intro">
+                <h1>Contact Us</h1>
+                <p class="para">Have a question or want to place an order?<br>Use the form below or WhatsApp us directly.</p>
+            </section>
+
+            <div class="contact-grid">
+                <div class="contact-card contact-info-card">
+                    <section id="contact-details">
+                        <h2>Our Address & Hours</h2>
+                        <p class="par">You can find us at Area 24 in Lilongwe along Katete Road<br>Opening hours: Monday–Saturday, 7:00 AM – 6:00 PM</p>
+                    </section>
+
+                   
+
+                    <div class="Team">
+                        <h3>Meet Our Team</h3>
+                        <p class="Team-par">At Virginia James Fashion Designers & Tailoring, our team is passionate about creating stylish, high-quality garments while providing excellent customer service. We combine creativity, craftsmanship, and technology to ensure every client receives the best experience. From fashion design and tailoring to technical support and website management, each team member plays an important role in bringing your ideas to life.</p>
+                    </div>
+
+                    <div class="team-cards">
+                        <div class="team-card">
+                            <h2>Stevie Mwaithukuta</h2>
+                            <p>Lead Fashion Designer & Tailor<br>Specializes in custom fashion designs, garment construction, alterations, and modern fashion trends.</p>
+                        </div>
+                        <div class="team-card">
+                            <h2>Talandira Thukuta</h2>
+                            <p>ICT & Technical Support Specialist<br>Manages the company's website, digital systems, online services, and technical support to ensure smooth communication and operations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="Contact-form">
+                        <h4>SEND A MESSAGE</h4>
+                        <input type="name" name="name" placeholder="Enter your name" id="name" required><br>
+                        <input type="Email" name="Email" placeholder="Enter Email"><br>
+                        <div class="message">
+                        <label for="message">Message</label><br>
+                        <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+                    </div>
+                    
+
+
+                            <div class="button">
+                                <button type="button" onclick="sendToGmail()">Send</button>
+                            </div>
+                             <div class="wap">
+                        <h2>WhatsApp Us</h2>
+                        <p class="parr">Prefer WhatsApp? Click the button below to start a chat with us.</p>
+                        <a href="https://wa.me/265884356327" target="_blank"><button class="bttn">Chat on WhatsApp</button></a>
+                    </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="search.js"></script>
+
+   
+
+    <script>
+function sendToGmail() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("Email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const recipient = "angellakachibekete229@gmail.com";
+    const subject = "VJD Website Contact Form Message";
+
+    const body =
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Message:\n" + message;
+
+    const gmailUrl =
+        "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent(recipient) +
+        "&su=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+    window.location.href = gmailUrl;
+}
+</script>
+</body>
+</html>
