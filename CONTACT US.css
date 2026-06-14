@@ -10,7 +10,8 @@
         radial-gradient(ellipse at 40% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
         #000;
     background-size: cover;
-    height: 180vh;  
+    min-height: 100vh;
+    height: auto;
 }
 .navbar{
     width: 100%;
@@ -50,6 +51,7 @@
     border-radius: 20px;
     border: 1px solid #fff;
     margin-top: 20px;
+     border: 2px solid skyblue;
 }
 ul{
     float: left;
@@ -276,75 +278,35 @@ ul li a:hover{
         max-width: 520px;
         text-align: left;
         margin: 0;
-    }
-    .contact-card{
-        border:1px solid #ff7200
-    }
-    .Contact-form h4{
-         width: 220px;
-        font-family:sans-serif;
-        font-size: 20px;
-        text-align: center;
-        color: #ff7200;
-        background-color: rgba(63, 61, 61, 0.45);
-        border-radius: 10px;
-        margin: 2px;
-        margin-left: 150px;
-        padding: 8px;
-        border: 1px solid #ff7200;
+        color: #fff;
+        font-size: 14px;
+        letter-spacing: 0.4px;
     }
 
-    .Contact-form input{
-        width: 340px;
-        height: 40px;
-        background: #353333;
-        border-bottom: 1px solid #ff7200;
-        border-top: none;
-        border-left: none;
-        border-right: 1px solid #ff7200;
-        border-radius: 7px;
-        color: #fff;
-        font-family: serif;
-        font-size: 15px;
-        margin-top: 30px;
-        letter-spacing: 1px;
-         transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    .contact-card.contact-form-card h2,
+    .contact-card.contact-form-card h4{
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #ffb347;
     }
-.Contact-form input:focus{
-    border-color: #ff7200;
-    box-shadow: 0 0 0 2px skyblue;
-    outline: none;
-}
-.message{
-    margin-top: 15px;
-    font-size: 20px;
-}
-.message textarea{
-    width: 340px;
-    height: 100px;
-    background-color: #353333;
-    border: 1px solid #ff7200;
-    border-radius: 7px;
-    color: #fff;
-    font-family: serif;
-    font-size: 15px;
-    letter-spacing: 1px;
-    transition: border-color 0.25s ease, box-shadow 0.25s;
-    margin-top: 10px;
-}
+
     .contact-card.contact-form-card .contact-form input,
     .contact-card.contact-form-card .contact-form textarea{
         width: 100%;
         max-width: 520px;
-        font-family: sans-serif;
+        font-family: serif;
         font-size: 15px;
-        color: #e6f7ff;
-        background-color: rgba(0,0,0,0.45);
-        border: 1px solid rgba(255,179,71,0.35);
+        color: #fff;
+        background: rgba(53, 51, 51, 0.95);
+        border: 1px solid rgba(255,114,0,0.45);
         border-radius: 14px;
         padding: 14px 16px;
+        margin-top: 8px;
         box-sizing: border-box;
-        transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
     }
 
     .contact-card.contact-form-card .contact-form input:focus,
@@ -352,6 +314,22 @@ ul li a:hover{
         border-color: #ffb347;
         box-shadow: 0 0 0 8px rgba(255,179,71,0.12);
         outline: none;
+        transform: translateY(-1px);
+    }
+
+    .contact-card.contact-form-card .message{
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .contact-card.contact-form-card .message label{
+        margin-bottom: 8px;
+    }
+
+    .contact-card.contact-form-card .message textarea{
+        min-height: 140px;
+        resize: vertical;
     }
 
     .contact-card.contact-form-card .button{
@@ -362,10 +340,14 @@ ul li a:hover{
 
     .contact-card.contact-form-card .button button{
         width: 100%;
-        padding: 14px 16px;
-        border-radius: 14px;
+        padding: 14px 18px;
+        border-radius: 16px;
         font-size: 16px;
         font-weight: 700;
+    }
+
+    .contact-card{
+        border:1px solid #ff7200;
     }
 
     .team-cards{
@@ -394,6 +376,20 @@ ul li a:hover{
         display: block;
         text-align: center;
         margin-bottom: 20px;
+    }
+
+    .contact-card .wap{
+        text-align: center;
+    }
+
+    .contact-card .wap a {
+        display: inline-block;
+    }
+
+    .contact-card .wap button {
+        width: auto;
+        min-width: 220px;
+        padding: 12px 22px;
     }
 
  button {
@@ -437,6 +433,17 @@ button.loading {
     @media (max-width: 900px) {
         .contact-grid {
             grid-template-columns: 1fr;
+        }
+        .contact-card {
+            padding: 26px 20px;
+        }
+        .contact-card.contact-form-card .contact-form {
+            padding: 0;
+        }
+        .contact-card .button button,
+        .contact-card .wap button {
+            width: 100%;
+            max-width: 100%;
         }
         .team-cards {
             grid-template-columns: 1fr;
