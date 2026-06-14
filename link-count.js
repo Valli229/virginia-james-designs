@@ -1,3 +1,4 @@
+
 (function () {
   const SERVER_URL = 'http://localhost:3000';
   const STORAGE_KEY = 'vjd_photo_likes';
