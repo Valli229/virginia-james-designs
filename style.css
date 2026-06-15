@@ -301,6 +301,28 @@ ul li a:hover{
         margin: 0 auto;
     }
 }
+@media (max-width: 768px) {
+
+    .search-box {
+        width: 90%;
+        margin: 10px auto;
+        display: flex;
+    }
+
+    .search-box input {
+        flex: 1;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .search-box button {
+        width: 80px;      /* Adjust as needed */
+        height: 38px;
+        font-size: 14px;
+        padding: 0;
+    }
+
+}
 
 @media (max-width: 900px) {
     .navbar {
