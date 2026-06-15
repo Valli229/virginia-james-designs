@@ -64,7 +64,7 @@
                 <div class="contact-card contact-form-card">
                     <div class="contact-form">
                         <h2>Send a Message</h2>
-                        <form id="siteContactForm">
+                        <form id="siteContactForm" onsubmit="return handleContactForm(event)">
                             <label for="name">Your name</label>
                             <input type="text" name="name" id="name" placeholder="Enter your name" required>
 
@@ -77,14 +77,14 @@
                             </div>
 
                             <div class="button">
-                                <button type="button" onclick="sendToGmail()">Send</button>
+                                <button type="submit" class="submit-btn">Send</button>
                             </div>
                         </form>
 
                         <div class="wap">
                             <h2>WhatsApp Us</h2>
                             <p class="parr">Prefer WhatsApp? Click the button below to start a chat with us.</p>
-                            <a href="https://wa.me/265884356327" target="_blank"><button class="bttn">Chat on WhatsApp</button></a>
+                            <a class="bttn" href="https://wa.me/265884356327" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ function sendToGmail() {
     const email = document.getElementById("Email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    const recipient = "angellakachibekete229@gmail.com";
+    const recipient = "steviemwaithukuta@gmail.com";
     const subject = "VJD Website Contact Form Message";
 
     const body =
