@@ -344,6 +344,41 @@ ul li a:hover{
         border-radius: 16px;
         font-size: 16px;
         font-weight: 700;
+        color: #fff;
+        background: linear-gradient(135deg, #ff7200, #ffb347);
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+    }
+
+    .contact-card.contact-form-card .button button:hover{
+        background: linear-gradient(135deg, #ff8c00, #ffc069);
+        transform: translateY(-1px);
+        box-shadow: 0 12px 28px rgba(255, 128, 0, 0.22);
+    }
+
+    .contact-card .wap{
+        text-align: center;
+    }
+
+    .contact-card .wap .bttn{
+        display: inline-block;
+        width: 100%;
+        max-width: 520px;
+        padding: 14px 18px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #ff7200, #ffb347);
+        color: #fff;
+        border-radius: 16px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.25s ease;
+    }
+
+    .contact-card .wap .bttn:hover{
+        background: linear-gradient(135deg, #ff8c00, #ffc069);
+        transform: translateY(-1px);
+        box-shadow: 0 12px 28px rgba(255, 128, 0, 0.22);
     }
 
     .contact-card{
@@ -587,8 +622,7 @@ p{
     }
     .menu ul li {
         margin: 8px 5px !important;
-        font-size: 11px;
-          text-align: center !important;
+        font-size: 12px;
     }
     .search {
         width: 100% !important;
