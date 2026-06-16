@@ -1,0 +1,11 @@
+IMAGE UPLOAD SETUP
+
+Configured values:
+Cloud name: valli229
+Upload preset: Fashion_orders
+
+Important:
+- The Cloudinary upload preset must be UNSIGNED.
+- The preset name must match exactly: Fashion_orders
+- Test while connected to the internet.
+- If upload fails, press F12 > Console to see the Cloudinary error.
