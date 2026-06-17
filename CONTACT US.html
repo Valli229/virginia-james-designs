@@ -12,25 +12,25 @@
 <body>
 
     <div class="main">
-        <div class="navbar">
+        <header class="navbar">
             <div class="icon">
-               <h2 class="logo"><a href="index.html"><img src="vjd-logo.png"></a></h2>
+                <h2 class="logo"><a href="index.html"><img src="vjd-logo.png" alt="Virginia James Designers Logo"></a></h2>
             </div>
 
-            <div class="menu">
+            <nav class="menu">
                 <ul>
-                   <li><a href="index.html">HOME</a></li>
+                    <li><a href="index.html">HOME</a></li>
                     <li><a href="SERVICES.html">SERVICE</a></li>
-                    <li><a href="CATEGORIES.html">CATEGORIES</a></li>
                     <li><a href="ABOUT.html">ABOUT</a></li>
-                   <li><a href="GALLERY.html">GALLERY</a></li>
-                   <li><a href="Order form.html">ORDER HERE</a></li>
+                    <li><a href="GALLERY.html">GALLERY</a></li>
+                    <li><a href="Order form.html">ORDER HERE</a></li>
+                    <li><a href="CONTACT US.html">CONTACT US</a></li>
                 </ul>
-            </div>
-        </div>
+            </nav>
 
         <div class="content">
             <section id="contact-intro">
+                <p class="eyebrow">Get in touch</p>
                 <h1>Contact Us</h1>
                 <p class="para">Have a question or want to place an order?<br>Use the form below or WhatsApp us directly.</p>
             </section>
@@ -39,7 +39,12 @@
                 <div class="contact-card contact-info-card">
                     <section id="contact-details">
                         <h2>Our Address & Hours</h2>
-                        <p class="par">You can find us at Area 24 in Lilongwe along Katete Road<br>Opening hours: Monday–Saturday, 7:00 AM – 6:00 PM</p>
+                        <p class="par">Visit us or send a quick message for custom designs, fittings, alterations, and fashion advice.</p>
+                        <div class="info-list">
+                            <div class="info-pill"><span>📍</span><p>Area 24 in Lilongwe along Katete Road</p></div>
+                            <div class="info-pill"><span>⏰</span><p>Monday–Saturday, 7:00 AM – 6:00 PM</p></div>
+                            <div class="info-pill"><span>✂</span><p>Custom tailoring, fashion design, alterations, and measurements.</p></div>
+                        </div>
                     </section>
 
                    
@@ -64,7 +69,7 @@
                 <div class="contact-card contact-form-card">
                     <div class="contact-form">
                         <h2>Send a Message</h2>
-                        <form id="siteContactForm" onsubmit="return handleContactForm(event)">
+                        <form id="siteContactForm" onsubmit="return sendToGmail(event)">
                             <label for="name">Your name</label>
                             <input type="text" name="name" id="name" placeholder="Enter your name" required>
 
@@ -98,7 +103,9 @@
    
 
     <script>
-function sendToGmail() {
+function sendToGmail(event) {
+    event.preventDefault();
+
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("Email").value.trim();
     const message = document.getElementById("message").value.trim();
@@ -107,18 +114,21 @@ function sendToGmail() {
     const subject = "VJD Website Contact Form Message";
 
     const body =
-        "Name: " + name + "\n" +
-        "Email: " + email + "\n\n" +
-        "Message:\n" + message;
+        "Name: " + encodeURIComponent(name) + "%0D%0A" +
+        "Email: " + encodeURIComponent(email) + "%0D%0A%0D%0A" +
+        "Message:%0D%0A" + encodeURIComponent(message);
 
     const gmailUrl =
         "https://mail.google.com/mail/?view=cm&fs=1" +
         "&to=" + encodeURIComponent(recipient) +
         "&su=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
+        "&body=" + body;
 
     window.location.href = gmailUrl;
 }
 </script>
+ <footer class="footer">
+        <p>&copy; 2026 Virginia James Designers. All rights reserved.</p>
+    </footer>
 </body>
 </html>
