@@ -26,24 +26,80 @@ a {
 }
 
 /* Background preserved from your original order page */
-.main {
+.main{
+    width: 100%;
     min-height: 100vh;
     background:
         radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.15) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
         radial-gradient(ellipse at 40% 20%, rgba(255,255,255,0.1) 0%, transparent 50%),
         #000;
-    padding-bottom: 34px;
+    background-size: cover;
+    padding-bottom: 40px;
 }
 
-.navbar {
-    width: min(1180px, calc(100% - 32px));
+.navbar{
+    width: 1200px;
+    max-width: 94%;
     margin: 0 auto;
-    padding: 18px 0;
+    padding: 22px 0 18px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     gap: 18px;
+}
+
+.logo img{
+    width: 118px;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    margin-left: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+}
+
+.menu{
+    flex: 1;
+    min-width: 620px;
+    max-width:900px;
+    min-height: 58px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 28px;
+    display: flex;
+    margin-left: 100px;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.25);
+}
+
+.menu ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    padding: 8px;
+}
+
+.menu ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: .4px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    transition: 0.25s ease;
+}
+
+.menu ul li a:hover{
+    color: #111;
+    background: #ff7200;
 }
 
 .brand {
@@ -63,34 +119,6 @@ a {
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.94);
     padding: 4px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(8px);
-}
-
-.nav-links a {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 10px 12px;
-    border-radius: 999px;
-    transition: 0.25s ease;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #1c1c1c;
-    background: #ffb347;
 }
 
 .order-hero {
