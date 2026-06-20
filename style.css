@@ -33,7 +33,7 @@ a {
 }
 
 .navbar {
-    width: min(100px, calc(100% - 22px));
+    min-width: min(100px, calc(100% - 22px));
     margin: 0 auto;
     padding: 18px 0;
     display: flex;
@@ -412,7 +412,7 @@ a {
 
 @media (max-width: 768px) {
     .navbar {
-        width: calc(100% - 24px);
+        max-width:100px;
         padding: 12px 0;
     }
 
