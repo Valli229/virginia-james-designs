@@ -15,7 +15,7 @@
     height: 850vh; 
 }
 .navbar{
-   width: 1200px;
+    width: 1200px;
     max-width: 94%;
     margin: 0 auto;
     padding: 22px 0 18px;
@@ -39,11 +39,10 @@
 }
 .menu{
     flex: 1;
-    min-width: 0;
-    max-width: 100%;
+    min-width: 620px;
     min-height: 58px;
-    background: rgba(19, 17, 17, 0.08);
-    border: 1px solid rgba(54, 44, 44, 0.18);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
     border-radius: 28px;
     display: flex;
     align-items: center;
@@ -591,6 +590,25 @@ img { max-width: 100%; height: auto; }
         overflow: hidden !important;
     }
     .icon { width: 100% !important; height: auto !important; float: none !important; text-align: center !important; }
+
+/* Mobile nav/search polish - ensure professional header on small screens */
+@media (max-width: 980px) {
+    .navbar { flex-direction: column; align-items: center; padding: 12px 14px; }
+    .logo img { width: 88px; }
+    .menu { width: 100%; max-width: 100%; flex: 1 1 100%; padding: 6px; border-radius: 20px; }
+    .menu ul { flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .menu ul li a { font-size: 13px; padding: 8px 10px; }
+    .search { width: 100%; display:flex; justify-content:center; gap:8px; margin-top:8px; }
+    .srch { flex:1; min-width:0; width: calc(100% - 100px); max-width: calc(100% - 100px); }
+    .btn { width: 90px; }
+}
+
+@media (max-width: 600px) {
+    .logo img { width: 72px; }
+    .srch, .btn { width: 100%; }
+    .search { flex-direction: column; gap: 8px; align-items: stretch; }
+    .menu ul li a { font-size: 12px; padding: 7px 8px; }
+}
     .logo img { width: 95px !important; height: auto !important; margin: 5px auto 10px !important; padding: 0 !important; float: none !important; }
     .menu { width: 100% !important; height: auto !important; min-height: 55px !important; float: none !important; margin: 0 auto 10px !important; padding: 8px !important; }
     .menu ul { width: 100% !important; float: none !important; display: flex !important; flex-wrap: wrap !important; justify-content: center !important; align-items: center !important; gap: 8px !important; }
