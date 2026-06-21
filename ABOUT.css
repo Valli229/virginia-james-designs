@@ -470,7 +470,6 @@ p{
   }
   .menu ul li {
     margin: 6px 4px !important;
-    display: block !important;
   }
   h1 { font-size: 1.8rem !important; }
   h2 { font-size: 1.4rem !important; }
@@ -728,4 +727,23 @@ footer,.footer{width:100%!important;overflow:hidden!important}
  .menu ul li a{font-size:11px!important;padding:7px 8px!important}
  .logo{font-size:22px!important}
  .content,.container,.about-container,.contact-container,.gallery-container,.category-container,.service-pro-section,.order-container,.form-container{width:96%!important}
+}
+
+/* Mobile nav/search polish - ensure professional header on small screens */
+@media (max-width: 980px) {
+    .navbar { flex-direction: column; align-items: center; padding: 12px 14px; }
+    .logo img { width: 88px; }
+    .menu { width: 100%; max-width: 100%; flex: 1 1 100%; padding: 6px; border-radius: 20px; }
+    .menu ul { flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .menu ul li a { font-size: 13px; padding: 8px 10px; }
+    .search { width: 100%; display:flex; justify-content:center; gap:8px; margin-top:8px; }
+    .srch { flex:1; min-width:0; width: calc(100% - 100px); max-width: calc(100% - 100px); }
+    .btn { width: 90px; }
+}
+
+@media (max-width: 600px) {
+    .logo img { width: 72px; }
+    .srch, .btn { width: 100%; }
+    .search { flex-direction: column; gap: 8px; align-items: stretch; }
+    .menu ul li a { font-size: 12px; padding: 7px 8px; }
 }
