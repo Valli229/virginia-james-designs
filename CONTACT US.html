@@ -57,7 +57,7 @@
 
                     <div class="team-cards">
                         <div class="team-card">
-                            <h2>Stevie Mwaithukuta</h2>
+                            <h2>Stevie Mwai thukuta</h2>
                             <p>Lead Fashion Designer & Tailor<br>Specializes in custom fashion designs, garment construction, alterations, and modern fashion trends.</p>
                         </div>
                         <div class="team-card">
@@ -70,7 +70,7 @@
                 <div class="contact-card contact-form-card">
                     <div class="contact-form">
                         <h2>Send a Message</h2>
-                        <form id="siteContactForm" onsubmit="return sendToGmail(event)">
+                        <form id="siteContactForm">
                             <label for="name">Your name</label>
                             <input type="text" name="name" id="name" placeholder="Enter your name" required>
 
@@ -105,28 +105,44 @@
 
     <script>
 function sendToGmail(event) {
-    event.preventDefault();
+    event.preventDefault(); 
 
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("Email").value.trim();
-    const message = document.getElementById("message").value.trim();
+    const form = event.currentTarget || document.getElementById("siteContactForm");
+    if (!form || !form.checkValidity()) { 
+        if (form) form.reportValidity(); 
+        return false;
+    }
 
-    const recipient = "steviemwaithukuta@gmail.com";
-    const subject = "VJD Website Contact Form Message";
+    const recipient = "steviemwaithukuta@gmail.com"; 
+    const subject = "VJD Website Contact Form Message"; 
+    const isMobile = (navigator.userAgentData && navigator.userAgentData.mobile) || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || (window.matchMedia && window.matchMedia('(max-width: 768px) and (pointer: coarse)').matches); 
+    const fields = Array.from(form.querySelectorAll("input, textarea, select")); 
+    const bodyLines = []; 
 
-    const body =
-        "Name: " + encodeURIComponent(name) + "%0D%0A" +
-        "Email: " + encodeURIComponent(email) + "%0D%0A%0D%0A" +
-        "Message:%0D%0A" + encodeURIComponent(message);
+    fields.forEach((field) => { 
+        if (!field.name || field.type === "button" || field.type === "submit" || field.type === "reset" || field.type === "hidden") return; // Ignores buttons and hidden fields so only the real form content is emailed.
+        const value = field.value.trim(); 
+        if (value) bodyLines.push(`${field.name}: ${value}`);     });
 
-    const gmailUrl =
-        "https://mail.google.com/mail/?view=cm&fs=1" +
-        "&to=" + encodeURIComponent(recipient) +
-        "&su=" + encodeURIComponent(subject) +
-        "&body=" + body;
+    const gmailBody = bodyLines.map((line) => encodeURIComponent(line)).join("%0D%0A"); 
+    const mailtoBody = bodyLines.join("\n"); 
+    const gmailUrl = "https://mail.google.com/mail/?view=cm&fs=1" + "&to=" + encodeURIComponent(recipient) + "&su=" + encodeURIComponent(subject) + "&body=" + gmailBody; 
+    const mailtoUrl = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(mailtoBody); 
 
-    window.location.href = gmailUrl;
+    if (isMobile) { 
+        window.location.href = mailtoUrl; 
+    } else {
+        window.location.href = gmailUrl; 
+    }
+
+    return false; 
 }
+
+const contactForm = document.getElementById("siteContactForm"); 
+if (contactForm) {
+    contactForm.addEventListener("submit", sendToGmail); 
+}
+
 </script>
  <footer class="footer">
         <p>&copy; 2026 Virginia James Designers. All rights reserved.</p>
