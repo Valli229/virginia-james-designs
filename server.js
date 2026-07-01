@@ -111,4 +111,3 @@ app.listen(PORT, () => {
     console.log(`🚀 VJD Web Server running on http://localhost:${PORT}`);
     console.log(`📊 Link counts stored in: ${COUNTS_FILE}`);
 });
-
