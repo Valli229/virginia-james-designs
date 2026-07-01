@@ -1371,8 +1371,9 @@ footer,.footer{width:100%!important;overflow:hidden!important}
  .logo{font-size:24px!important;text-align:center!important;white-space:normal!important}
  .menu ul{gap:6px!important}
  .menu ul li a{font-size:12px!important;padding:8px 9px!important}
- .search{flex-direction:column!important;gap:8px!important;padding:0 10px!important}
- .srch,.btn{width:100%!important;max-width:330px!important;border-radius:22px!important;border:1px solid #ff7200!important}
+ .search{flex-direction:column!important;gap:10px!important;padding:0!important;background:transparent!important;border:none!important;box-shadow:none!important;overflow:visible!important} /* Removes the large mobile search wrapper so only the normal input and button show. */
+ .srch{width:100%!important;max-width:240px!important;height:46px!important;min-height:46px!important;max-height:46px!important;padding:0 14px!important;box-sizing:border-box!important;border-radius:22px!important;border:1px solid #ff7200!important;flex:none!important} /* Keeps the phone input as a normal 46px search box instead of a tall stretched rectangle. */
+ .btn{width:120px!important;max-width:120px!important;height:46px!important;min-height:46px!important;max-height:46px!important;padding:0 14px!important;box-sizing:border-box!important;border-radius:22px!important;flex:none!important} /* Keeps the search button compact and centered below the input on narrow phones. */
  .content{text-align:center!important;padding-top:24px!important}
  .content h1{font-size:clamp(28px,11vw,42px)!important}
  .content p{margin-left:auto!important;margin-right:auto!important}
@@ -1383,4 +1384,70 @@ footer,.footer{width:100%!important;overflow:hidden!important}
  .menu ul li a{font-size:11px!important;padding:7px 8px!important}
  .logo{font-size:22px!important}
  .content,.container,.about-container,.contact-container,.gallery-container,.category-container,.service-pro-section,.order-container,.form-container{width:96%!important}
+}
+
+
+/* === FINAL MOBILE SEARCH BAR CORRECTION FOR GALLERY.html === */
+@media (max-width: 820px) {
+  .navbar .search {
+    width: 100% !important; /* Lets the search area fit inside the phone screen. */
+    max-width: 280px !important; /* Prevents the wrapper from becoming a wide/large rectangle. */
+    min-width: 0 !important; /* Cancels earlier min-width rules that can force overflow. */
+    height: auto !important; /* Stops inherited height/stretching from enlarging the search area. */
+    min-height: 0 !important; /* Removes any excessive minimum height from mobile rules. */
+    padding: 0 !important; /* Removes wrapper padding that was making the box look too large. */
+    margin: 14px auto 0 !important; /* Keeps it centered below the menu without changing the layout. */
+    display: flex !important; /* Keeps the input and button controlled by flex on mobile. */
+    flex-direction: column !important; /* Stacks cleanly on very small screens instead of squeezing/overflowing. */
+    align-items: center !important; /* Centers the input and button. */
+    justify-content: center !important; /* Prevents flex stretching from increasing their size. */
+    gap: 10px !important; /* Adds normal spacing between input and button. */
+    background: transparent !important; /* Removes the large dark mobile wrapper behind the search bar. */
+    border: none !important; /* Removes the wrapper border that made it look like a big card. */
+    box-shadow: none !important; /* Prevents any inherited card-like search background. */
+    box-sizing: border-box !important; /* Keeps the search area within its container. */
+    overflow: visible !important; /* Prevents clipping while keeping normal sizing. */
+  }
+
+  .navbar .search .srch {
+    width: 100% !important; /* Makes the input responsive inside the search area. */
+    max-width: 240px !important; /* Keeps the input small and normal on phones. */
+    min-width: 0 !important; /* Allows the input to shrink on 320px screens. */
+    height: 46px !important; /* Sets a normal mobile search-box height. */
+    min-height: 46px !important; /* Prevents the input from collapsing below the required height. */
+    max-height: 46px !important; /* Stops any rule from stretching it taller. */
+    padding: 0 14px !important; /* Uses normal compact input padding. */
+    margin: 0 !important; /* Removes desktop/old mobile spacing. */
+    float: none !important; /* Cancels old float layout that can break mobile alignment. */
+    flex: none !important; /* Stops flex stretching from making the input oversized. */
+    align-self: center !important; /* Keeps the input centered. */
+    box-sizing: border-box !important; /* Includes padding and border inside the width. */
+    border-radius: 22px !important; /* Keeps the existing rounded search style. */
+  }
+
+  .navbar .search .btn {
+    width: 120px !important; /* Keeps the search button compact on mobile. */
+    max-width: 120px !important; /* Stops the global button width rule from stretching it. */
+    min-width: 0 !important; /* Prevents overflow on small screens. */
+    height: 46px !important; /* Aligns the button height with the input. */
+    min-height: 46px !important; /* Keeps the button easy to tap. */
+    max-height: 46px !important; /* Prevents excessive button height. */
+    padding: 0 14px !important; /* Keeps button text centered without overflow. */
+    margin: 0 !important; /* Removes desktop/old mobile spacing. */
+    float: none !important; /* Cancels old float layout. */
+    flex: none !important; /* Stops flex stretching from making the button full-width. */
+    align-self: center !important; /* Centers the button under the input. */
+    box-sizing: border-box !important; /* Keeps padding inside the button width. */
+    border-radius: 22px !important; /* Keeps the existing rounded button style. */
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar .search {
+    max-width: 250px !important; /* Gives extra safety on 320px screens. */
+  }
+
+  .navbar .search .srch {
+    max-width: 230px !important; /* Prevents input overflow on very small phones. */
+  }
 }
