@@ -2,6 +2,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.srch');
     const searchBtn = document.querySelector('.btn');
+
+    // Stop safely on pages that do not have a search bar.
+    if (!searchInput || !searchBtn) {
+        return;
+    }
     let searchResultsContainer = document.getElementById('search-results');
 
     // Create search results container if it doesn't exist
@@ -10,7 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
         searchResultsContainer.id = 'search-results';
         searchResultsContainer.className = 'search-results-container';
         const navbar = document.querySelector('.navbar');
-        navbar.parentNode.insertBefore(searchResultsContainer, navbar.nextSibling);
+        const targetParent = document.querySelector('.main') || document.querySelector('main') || document.body;
+        if (navbar && navbar.parentNode) {
+            navbar.parentNode.insertBefore(searchResultsContainer, navbar.nextSibling);
+        } else {
+            targetParent.insertBefore(searchResultsContainer, targetParent.firstChild);
+        }
     }
 
     const imageCatalog = [
@@ -45,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { src: 'WOMEN-WEAR-3.jpg', alt: 'Womens Style', title: 'Womens Wear', keywords: ['women', 'style', 'female'] },
         { src: 'WOMEN-WEAR-4.jpg', alt: 'Womens Outfit', title: 'Womens Wear', keywords: ['women', 'outfit'] },
         { src: 'WOMEN-WEAR-5.jpg', alt: 'Womens Design', title: 'Womens Wear', keywords: ['women', 'design'] },
-        { src: 'WOMEN-WEAR-6.jpg', alt: 'Womens Collection', title: 'Womens Wear', keywords: ['women', 'collection'] },
+        { src: 'WOMEN-WEAR-7.jpg', alt: 'Womens Collection', title: 'Womens Wear', keywords: ['women', 'collection'] },
         { src: 'WOMEN-WEAR-7.jpg', alt: 'Womens Clothing', title: 'Womens Wear', keywords: ['women', 'clothing'] },
         { src: 'WOMEN-WEAR-8.jpg', alt: 'Womens Apparel', title: 'Womens Wear', keywords: ['women', 'apparel'] },
         { src: 'WOMEN-WEAR-9.jpg', alt: 'Womens Wear', title: 'Womens Wear', keywords: ['women', 'wear'] },
@@ -90,17 +100,17 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // School Uniforms
         { src: 'SCHOOL-UNIFORMS.jpg', alt: 'School Uniforms', title: 'School Uniforms', keywords: ['school', 'uniform', 'uniforms', 'student'] },
-        { src: 'SCHOOL-UNIFORMS 2.jpg', alt: 'School Uniform', title: 'School Uniforms', keywords: ['school', 'uniform'] },
-        { src: 'SCHOOL-UNIFORMS 3.jpg', alt: 'Student Uniform', title: 'School Uniforms', keywords: ['student', 'uniform'] },
-        { src: 'SCHOOL-UNIFORMS 4.jpg', alt: 'School Wear', title: 'School Uniforms', keywords: ['school', 'wear'] },
-        { src: 'SCHOOL-UNIFORMS 5.jpg', alt: 'School Uniform', title: 'School Uniforms', keywords: ['school', 'uniform'] },
+        { src: 'SCHOOL-UNIFORMS-2.jpg', alt: 'School Uniform', title: 'School Uniforms', keywords: ['school', 'uniform'] },
+        { src: 'SCHOOL-UNIFORMS-3.jpg', alt: 'Student Uniform', title: 'School Uniforms', keywords: ['student', 'uniform'] },
+        { src: 'SCHOOL-UNIFORMS-4.jpg', alt: 'School Wear', title: 'School Uniforms', keywords: ['school', 'wear'] },
+        { src: 'SCHOOL-UNIFORMS-5.jpg', alt: 'School Uniform', title: 'School Uniforms', keywords: ['school', 'uniform'] },
         
         // Summer
         { src: 'SUMMER-1.jpg', alt: 'Summer Wear', title: 'Summer Collection', keywords: ['summer', 'beach', 'casual', 'hot weather'] },
         
         // Mixed
-        { src: 'WOMEN-AND-MEN\'S WEAR.jpg', alt: 'Mens and Womens Wear', title: 'Mixed Collection', keywords: ['women', 'men', 'wear', 'fashion'] },
-        { src: 'WOMEN-AND-MEN\'S  WEAR.jpg', alt: 'Womens and Mens Wear', title: 'Mixed Collection', keywords: ['women', 'men', 'wear'] },
+        { src: 'WOMEN-AND-MEN\'S-WEAR.jpg', alt: 'Mens and Womens Wear', title: 'Mixed Collection', keywords: ['women', 'men', 'wear', 'fashion'] },
+        { src: 'WOMEN-AND-MEN\'S -WEAR.jpg', alt: 'Womens and Mens Wear', title: 'Mixed Collection', keywords: ['women', 'men', 'wear'] },
         
         // Equipment
         { src: 'machine.jpg', alt: 'Sewing Machine', title: 'Equipment', keywords: ['machine', 'sewing', 'equipment', 'fabric', 'tailoring'] },
@@ -165,10 +175,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (results.length === 0) {
             searchResultsContainer.innerHTML = `<div class="no-results">No exact image found for "${searchTerm}"</div>`;
         } else {
-            let html = `<div class="search-results-header">Showing ${results.length} image result${results.length !== 1 ? 's' : ''} for "${searchTerm}"</div>`;
+            let html = `<div class="search-results-header">Showing ${Math.min(results.length, 24)} image result${results.length !== 1 ? 's' : ''} for "${searchTerm}"</div>`;
             html += '<div class="search-results-grid">';
 
-            results.forEach((image, index) => {
+            results.slice(0, 24).forEach((image, index) => {
                 html += `
                     <div class="search-result-card" data-image-index="${index}" data-image-src="${image.src}" data-image-alt="${image.alt}">
                         <img class="search-result-image" src="${image.src}" alt="${image.alt}">
@@ -395,42 +405,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    const moreButtons = document.querySelectorAll('.more-btn');
-    moreButtons.forEach((btn) => {
-        btn.addEventListener('click', function() {
-            const card = btn.closest('.category-card');
-            if (!card) return;
-            const moreArea = card.querySelector('.more-images');
-            const categoryKey = card.id;
-            const categoryImages = getCategoryImages(categoryKey);
-            const isOpen = !moreArea.classList.contains('hidden');
+    // Category cards now handle their own More buttons inside CATEGORIES.html.
+    // This guard prevents duplicate handlers from opening and closing the same panel at once.
+    if (!document.getElementById('categories-page')) {
+        const moreButtons = document.querySelectorAll('.more-btn');
+        moreButtons.forEach((btn) => {
+            btn.addEventListener('click', function() {
+                const card = btn.closest('.category-card');
+                if (!card) return;
+                const moreArea = card.querySelector('.more-images');
+                if (!moreArea) return;
+                const categoryKey = card.id;
+                const categoryImages = getCategoryImages(categoryKey);
+                const isOpen = !moreArea.classList.contains('hidden');
 
-            if (isOpen) {
-                moreArea.classList.add('hidden');
-                btn.textContent = '📸 More';
-                return;
-            }
+                if (isOpen) {
+                    moreArea.classList.add('hidden');
+                    btn.textContent = '📸 More';
+                    return;
+                }
 
-            if (categoryImages.length === 0) {
-                moreArea.innerHTML = `<div class="no-more-images">No additional images available for this category.</div>`;
-            } else {
-                moreArea.innerHTML = `<div class="more-images-grid">${categoryImages.slice(0, 6).map((image) => `
-                    <img src="${image.src}" alt="${image.alt}" loading="lazy">
-                `).join('')}</div>`;
-            }
+                if (categoryImages.length === 0) {
+                    moreArea.innerHTML = `<div class="no-more-images">No additional images available for this category.</div>`;
+                } else {
+                    moreArea.innerHTML = `<div class="more-images-grid">${categoryImages.slice(0, 6).map((image) => `
+                        <img src="${image.src}" alt="${image.alt}" loading="lazy">
+                    `).join('')}</div>`;
+                }
 
-            moreArea.classList.remove('hidden');
-            btn.textContent = 'Hide';
-            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                moreArea.classList.remove('hidden');
+                btn.textContent = 'Hide';
 
-            const gridImages = moreArea.querySelectorAll('.more-images-grid img');
-            const categoryName = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
-            gridImages.forEach((image) => {
-                image.style.cursor = 'zoom-in';
-                image.addEventListener('click', function() {
-                    showMaximizedImage(this.src, this.alt, categoryName);
+                const gridImages = moreArea.querySelectorAll('.more-images-grid img');
+                const categoryName = card.querySelector('h3') ? card.querySelector('h3').textContent : '';
+                gridImages.forEach((image) => {
+                    image.style.cursor = 'zoom-in';
+                    image.addEventListener('click', function() {
+                        showMaximizedImage(this.getAttribute('src'), this.alt, categoryName);
+                    });
                 });
             });
         });
-    });
+    }
 });
