@@ -1,0 +1,41 @@
+/* Back to top button styles */
+#backToTopBtn {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 999px;
+  background: #ffb347;
+  color: #111;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+  z-index: 1000;
+}
+#backToTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#backToTopBtn:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+}
+/* Smaller on very small screens */
+@media (max-width: 480px) {
+  #backToTopBtn {
+    right: 12px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
