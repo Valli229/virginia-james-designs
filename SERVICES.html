@@ -10,7 +10,8 @@
     <meta property="og:image" content="https://valli229.github.io/virginia-james-designs/vjd-logo.png">
     <meta property="og:url" content="https://valli229.github.io/virginia-james-designs/">  
     <link rel="stylesheet" href="SERVICES.css">
-   <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="back-to-top.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="responsive-fix.css">
 </head>
 <body class="index-page">
@@ -21,17 +22,16 @@
                 <h2 class="logo"><a href="index.html"><img src="vjd-logo.png"></a></h2>
             </div>
 
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    
-                    <li><a href="CATEGORIES.html">CATEGORIES</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                   <li><a href="GALLERY.html">GALLERY</a></li>
-                   <li><a href="Order form.html">ORDER</a></li>
-                   <li><a href="CONTACT US.html">CONTACT US</a></li>
-                </ul>
-            </div>
+           <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="CATEGORIES.html">CATEGORIES</a></li>
+                        <li><a href="ABOUT.html">ABOUT</a></li>
+                        <li><a href="GALLERY.html">GALLERY</a></li>
+                        <li><a href="Order form.html">ORDER HERE</a></li>
+                        <li><a href="CONTACT US.html">CONTACT US</a></li>
+                    </ul>
+                </nav>
 
           
             <section class="service-pro-section">
@@ -96,72 +96,6 @@
     </div>
 </section>
  <div class="content">
-                <!-- EDITABLE: Services header -->
-                <h1>Our Services</h1>
-                <p class="par">Below are the main services we provide </p>
-
-                <!-- EDITABLE: List of services (easy to change) -->
-                <section id="services-list">
-                    <article class="service-item">
-                        <h3>Bridal & Occasion Wear</h3>
-                        <p class="par">Custom bridal gowns, fittings and embellishments.</p>
-                        <div class="photo-card">
-                            <div class="CARD">
-                                <img class="featured-photo" src="BRIDAL-1.jpg" alt="BRIDAL WEAR">
-                            </div>
-                            <div class="photo-actions">
-                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                                <button class="action-btn share-btn" type="button">🔗 Share</button>
-                                <button class="action-btn order-btn" data-service-name="Bridal & Occasion Wear" data-order-src="BRIDAL-1.jpg" type="button">🛍️ Order</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="service-item">
-                        <h3>Men's Tailoring</h3>
-                        <p class="par">Bespoke suits, shirts and alterations for men.</p>
-                        <div class="photo-card">
-                            <div class="CARD">
-                                <img class="featured-photo" src="MENS-WEAR-6.jpg" alt="MENS WEAR">
-                            </div>
-                            <div class="photo-actions">
-                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                                <button class="action-btn share-btn" type="button">🔗 Share</button>
-                                <button class="action-btn order-btn" data-service-name="Men's Tailoring" data-order-src="MENS-WEAR-6.jpg" type="button">🛍️ Order</button>
-                            </div>
-                        </div>
-                    </article>
-                     <article class="service-item">
-                        <h3>Women Wear</h3>
-                        <p class="par">Bespoke Dresses, skirts and alterations for women.</p>
-                        <div class="photo-card">
-                            <div class="CARD">
-                                <img class="featured-photo" src="WOMEN-WEAR-22.jpg" alt="MENS WEAR">
-                            </div>
-                            <div class="photo-actions">
-                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                                <button class="action-btn share-btn" type="button">🔗 Share</button>
-                                <button class="action-btn order-btn" data-service-name="Women Wear" data-order-src="WOMEN-WEAR-22.jpg" type="button">🛍️ Order</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="service-item">
-                        <h3>Training & Courses</h3>
-                        <p class="par">Short courses and workshops to learn tailoring and garment construction.</p>
-                        <p class="par"></p>
-                         <div class="photo-card">
-                            <div class="CARD">
-                                <img class="featured-photo" src="machine.jpg" alt="TRAINING & COURSES">
-                            </div>
-                            <div class="photo-actions">
-                                <button class="action-btn like-btn" type="button">❤️ Like <span class="like-count">0</span></button>
-                                <button class="action-btn share-btn" type="button">🔗 Share</button>
-                                <button class="action-btn order-btn" data-service-name="Training & Courses" data-order-src="machine.jpg" type="button">🛍️ Order</button>
-                            </div>
-                        </div>
-                    </article>
-                </section>
                  <main>
                      <section class="cta-section">
                         <h2>Ready to create your next outfit?</h2>
@@ -174,10 +108,12 @@
         </div>
     </div>
      <footer class="footer">
+        <button type="button" id="backToTopBtn" aria-label="Back to top">↑</button>
         <p>&copy; 2026 Virginia James Designers. <br>All rights reserved.</p>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="search.js"></script>
+    <script src="back-to-top.js"></script>
 </body>
 </html>
            
