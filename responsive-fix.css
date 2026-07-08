@@ -1,9 +1,4 @@
 
-/* =========================================================
-   Responsive override added for all pages
-   Keeps the existing design/backgrounds but prevents overflow
-   and improves layout on desktop, tablet and mobile phones.
-   ========================================================= */
 * { box-sizing: border-box; }
 html { width: 100%; max-width: 100%; overflow-x: hidden; scroll-behavior: smooth; }
 body { width: 100%; max-width: 100%; overflow-x: hidden; margin: 0; }
