@@ -6,6 +6,7 @@
     <title>Virginia James Designers</title>
     <meta name="profile" content="https://valli229.github.io/virginia-james-designs/">
     <link rel="stylesheet" href="GALLERY.css">
+    <link rel="stylesheet" href="back-to-top.css">
    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="responsive-fix.css">
 </head>
@@ -17,21 +18,16 @@
                 <h2 class="logo"><a href="index.html"><img src="vjd-logo.png"></a></h2>
             </div>
 
-            <div class="menu">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="SERVICES.html">SERVICE</a></li>
-                    <li><a href="CATEGORIES.html">CATEGORIES</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                    <li><a href="Order form.html">ORDER HERE</a></li>
-                    <li><a href="CONTACT US.html">CONTACT US</a></li>
-                </ul>
-            </div>
-
-            <div class="search">
-                <input class="srch"  type="search" name="" placeholder="Type your text">
-                <button class="btn" type="button">search</button>
-            </div>
+            <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="SERVICES.html">SERVICE</a></li>
+                        <li><a href="ABOUT.html">ABOUT</a></li>
+                        <li><a href="CATEGORIES.html">CATEGORIES</a></li>
+                        <li><a href="Order form.html">ORDER HERE</a></li>
+                        <li><a href="CONTACT US.html">CONTACT US</a></li>
+                    </ul>
+                </nav>
         </div>
 
         <div class="gallery-wrapper">
@@ -40,6 +36,16 @@
                 <p>Explore through every category</p>
                 <p class="gallery-tagline">Elegant designs crafted by Virginia James Designers</p>
             </section>
+            <div class="Gallery-dropdown">
+                <label for="gallerySelect">Gallery Quick Launch:</label>
+                <select id="gallerySelect" name="category">
+                    <option value="bridal-collection">Bridal Collection</option>
+                    <option value="school-uniforms">School Uniform</option>
+                    <option value="summer-and-casual">Summer &amp; Casual</option>
+                    <option value="mixed-collections">Mixed Collections</option>
+                    <option value="equipment-and-services">Equipment &amp; Services</option>
+                </select>
+            </div>
 
             <div id="gallery-container"></div>
         </div>
@@ -51,14 +57,19 @@
             <div class="modal-actions">
                 <button type="button" class="modal-button like-button" aria-label="Like image">♡ Like</button>
                 <a class="modal-button order-button" href="Order form.html">Order</a>
+                
             </div>
+            
         </div>
+        
     </div>
+    
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const galleryData = [
                 {
+                    id: 'bridal-collection',
                     title: 'Bridal Collection',
                     items: [
                         { src: 'BRIDAL-1.jpg', alt: 'Bridal wear', label: 'Bridal 1' },
@@ -72,10 +83,13 @@
                         { src: 'BRIDAL-10.jpg', alt: 'Bridal outfit', label: 'Bridal 10' },
                         { src: 'BRIDAL-11.jpg', alt: 'Bridal collection', label: 'Bridal 11' },
                         { src: 'BRIDAL-12.jpg', alt: 'Bridal dress', label: 'Bridal 12' },
-                        { src: 'BRIDAL-13.jpg', alt: 'Bridal design', label: 'Bridal 13' }
+                        { src: 'BRIDAL-13.jpg', alt: 'Bridal design', label: 'Bridal 13' },
+                        { src: 'BRIDAL-14.png', alt: 'Bridal collection', label: 'Bridal 14' },
+                        { src: 'BRIDAL-15.png', alt: 'Bridal design', label: 'Bridal 15' }
                     ]
                 },
                 {
+                    id: 'mens-wear',
                     title: 'Mens Wear',
                     items: [
                         { src: 'MENS-WEAR.jpg', alt: 'Mens wear', label: 'Mens Wear' },
@@ -90,6 +104,7 @@
                     ]
                 },
                 {
+                    id: 'womens-wear',
                     title: 'Womens Wear',
                     items: [
                         { src: 'WOMEN-WEAR-1.jpg', alt: 'Womens wear 1', label: 'Womens Wear 1' },
@@ -127,10 +142,14 @@
                         { src: 'WOMEN-WEAR-33.jpg', alt: 'Womens wear 33', label: 'Womens Wear 33' },
                         { src: 'WOMEN-WEAR-34.jpg', alt: 'Womens wear 34', label: 'Womens Wear 34' },
                         { src: 'WOMEN-WEAR-35.jpg', alt: 'Womens wear 35', label: 'Womens Wear 35' },
-                        { src: 'WOMEN-WEAR-36.jpg', alt: 'Womens wear 36', label: 'Womens Wear 36' }
+                        { src: 'WOMEN-WEAR-36.jpg', alt: 'Womens wear 36', label: 'Womens Wear 36' },
+                        { src: 'WOMEN-WEAR-37.png', alt: 'Womens wear 37', label: 'Womens Wear 37' },
+                        { src: 'WOMEN-WEAR-38.png', alt: 'Womens wear 38', label: 'Womens Wear 38' },
+                        { src: 'WOMEN-WEAR-39.png', alt: 'Womens wear 39', label: 'Womens Wear 39' }
                     ]
                 },
                 {
+                    id: 'shirts-and-t-shirts',
                     title: 'Shirts & T-Shirts',
                     items: [
                         { src: 'T-SHIRTS-1.jpg', alt: 'T-Shirts', label: 'T-Shirts' },
@@ -146,22 +165,30 @@
                     ]
                 },
                 {
+                    id: 'interiors',
+                    title: 'Interiors',
+                    items: [
+                        { src: 'Pillor-curtions.jpg', alt: 'Pillow curtions', label: 'Pillor curtions' }
+                    ]
+                },
+                {
+                    id: 'school-uniforms',
                     title: 'School Uniforms',
                     items: [
                         { src: 'SCHOOL-UNIFORMS.jpg', alt: 'School Uniforms', label: 'School Uniforms' },
                         { src: 'SCHOOL-UNIFORMS-2.jpg', alt: 'School Uniforms 2', label: 'School Uniforms 2' },
-                        { src: 'SCHOOL-UNIFORMS-3.jpg', alt: 'School Uniforms 3', label: 'School Uniforms 3' },
                         { src: 'SCHOOL-UNIFORMS-4.jpg', alt: 'School Uniforms 4', label: 'School Uniforms 4' },
-                        { src: 'SCHOOL-UNIFORMS-5.jpg', alt: 'School Uniforms 5', label: 'School Uniforms 5' }
                     ]
                 },
                 {
+                    id: 'summer-and-casual',
                     title: 'Summer & Casual',
                     items: [
                         { src: 'SUMMER-1.jpg', alt: 'Summer wear', label: 'Summer Wear' }
                     ]
                 },
                 {
+                    id: 'mixed-collections',
                     title: 'Mixed Collections',
                     items: [
                         { src: 'WOMEN-AND-MEN\'S-WEAR.jpg', alt: 'Women and mens wear', label: 'Mixed Wear 1' },
@@ -169,6 +196,7 @@
                     ]
                 },
                 {
+                    id: 'equipment-and-services',
                     title: 'Equipment & Services',
                     items: [
                         { src: 'machine.jpg', alt: 'Sewing machine', label: 'Sewing Machine' },
@@ -176,12 +204,14 @@
                     ]
                 }
             ];
+            
 
             const galleryContainer = document.getElementById('gallery-container');
 
             galleryData.forEach((category) => {
                 const section = document.createElement('section');
                 section.className = 'gallery-category';
+                section.id = category.id;
                 section.innerHTML = `
                     <h2>${category.title}</h2>
                     <div class="gallery-grid"></div>
@@ -203,6 +233,14 @@
                 });
 
                 galleryContainer.appendChild(section);
+            });
+
+            const gallerySelect = document.getElementById('gallerySelect');
+            gallerySelect.addEventListener('change', function () {
+                const targetSection = document.getElementById(this.value);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
 
             const modal = document.getElementById('gallery-modal');
@@ -239,6 +277,7 @@
             });
         });
     </script>
+    
 
     <script>
         window.addEventListener('DOMContentLoaded', function () {
@@ -321,13 +360,13 @@
             console.info('💡 To view server-side stats, call: window.getServerCounts()');
         });
     </script>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="search.js"></script>
-    
-     <footer class="footer">
+    <footer class="footer">
+        <button type="button" id="backToTopBtn" aria-label="Back to top">↑</button>
         <p>&copy; 2026 Virginia James Designers. <br>All rights reserved.</p>
     </footer>
 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script src="search.js"></script>
+    <script src="back-to-top.js"></script>
 </body>
 </html>
