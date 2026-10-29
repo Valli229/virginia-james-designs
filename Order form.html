@@ -8,33 +8,32 @@
     <link rel="stylesheet" href="Order form.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="responsive-fix.css">
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPY8C9PBGC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SPY8C9PBGC');
-</script>
+    <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
    <div class="main">
-        <header class="navbar">
-            <div class="icon">
-                <h2 class="logo"><a href="index.html"><img src="vjd-logo.png" alt="Virginia James Designers Logo"></a></h2>
-            </div>
-
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="SERVICES.html">SERVICE</a></li>
-                     <li><a href="CATEGORIES.html">CATEGORIES</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                    <li><a href="GALLERY.html">GALLERY</a></li>
-                    <li><a href="CONTACT US.html">CONTACT US</a></li>
-                </ul>
-            </nav>
+        <header class="site-header">
+    <div class="container-nav">
+        <a class="logo" href="index.html">
+            <span class="logo-mark">VJD</span>
+            <span class="orga">VIRGINIA &amp; JAMES DESIGNS<br><span class="slogan"><small>neat finish.good fitting.wear with confidence</small></span></span>
+        </a>
+        <nav class="nav-links" aria-label="main-navigation">
+            <a href="index.html">HOME</a>
+            <a href="SERVICES.html">SERVICES</a>
+            <a href="CATEGORIES.html">CATEGORIES</a>
+            <a href="ABOUT.html">ABOUT</a>
+            <a href="GALLERY.html">GALLERY</a>
+            <a href="CONTACT US.html">CONTACT US</a>
+            
+        </nav>
+        <div class="right-nav">
+            <a class="nav-btn" href="GALLERY.html">Open Gallery</a>
+            <a class="nav-bttn" href="Order form.html">Order Design</a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        </div>
+    </div>
+</header>
 
 
         <section class="order-hero">
@@ -271,5 +270,6 @@
     </footer>
     <link rel="stylesheet" href="back-to-top.css">
     <script src="back-to-top.js"></script>
+    <script src="menu-toggle.js"></script>
 </body>
 </html>
