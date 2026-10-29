@@ -13,34 +13,33 @@
     <link rel="stylesheet" href="back-to-top.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="responsive-fix.css">
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPY8C9PBGC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SPY8C9PBGC');
-</script>
+    <link rel="stylesheet" href="site-header.css">
 </head>
 <body class="index-page">
 
     <div class="main index-main">
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo"><a href="index.html"><img src="vjd-logo.png"></a></h2>
-            </div>
-
-           <nav class="menu">
-                    <ul>
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="CATEGORIES.html">CATEGORIES</a></li>
-                        <li><a href="ABOUT.html">ABOUT</a></li>
-                        <li><a href="GALLERY.html">GALLERY</a></li>
-                        <li><a href="Order form.html">ORDER HERE</a></li>
-                        <li><a href="CONTACT US.html">CONTACT US</a></li>
-                    </ul>
-                </nav>
+        <header class="site-header">
+    <div class="container-nav">
+        <a class="logo" href="index.html">
+            <span class="logo-mark">VJD</span>
+            <span class="orga">VIRGINIA &amp; JAMES DESIGNS<br><span class="slogan"><small>neat finish.good fitting.wear with confidence</small></span></span>
+        </a>
+        <nav class="nav-links" aria-label="main-navigation">
+            <a href="index.html">HOME</a>
+            <a href="CATEGORIES.html">CATEGORIES</a>
+            <a href="ABOUT.html">ABOUT</a>
+            <a href="GALLERY.html">GALLERY</a>
+            <a href="Order form.html">ORDER</a>
+            <a href="CONTACT US.html">CONTACT US</a>
+           
+        </nav>
+        <div class="right-nav">
+            <a class="nav-btn" href="GALLERY.html">Open Gallery</a>
+            <a class="nav-bttn" href="Order form.html">Order Design</a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        </div>
+    </div>
+</header>
 
           
             <section class="service-pro-section">
@@ -123,6 +122,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script src="search.js"></script>
     <script src="back-to-top.js"></script>
+    <script src="menu-toggle.js"></script>
 </body>
 </html>
            
