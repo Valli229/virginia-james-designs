@@ -90,17 +90,18 @@ body{
 }
 
 .search{
-    width: 340px;
+    min-width: 350px;
     display: flex;
     justify-content: center;
     background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.16);
     border-radius: 24px;
     padding: 6px;
+    margin-left: 8rem;
 }
 
 .srch{
-    width: 220px;
+    min-width: 250px;
     height: 42px;
     background: transparent;
     border: none;
@@ -115,7 +116,7 @@ body{
 }
 
 .btn{
-    width: 95px;
+    min-width: 115px;
     height: 42px;
     background: linear-gradient(135deg, #ffb347, #ff7a00);
     border: none;
@@ -125,6 +126,7 @@ body{
     cursor: pointer;
     border-radius: 18px;
     transition: transform .25s ease, box-shadow .25s ease;
+    margin-left: 14rem;
 }
 
 .btn:hover{
@@ -139,6 +141,7 @@ body{
     border: 1px solid rgba(255,255,255,0.16);
     border-radius: 22px;
     padding: 14px;
+    margin-left: 5rem;
 }
 
 .category-dropdown label{
