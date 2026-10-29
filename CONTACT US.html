@@ -18,25 +18,33 @@
 
   gtag('config', 'G-SPY8C9PBGC');
 </script>
+    <link rel="stylesheet" href="site-header.css">
 </head>
 <body>
 
     <div class="main">
-        <header class="navbar">
-            <div class="icon">
-                <h2 class="logo"><a href="index.html"><img src="vjd-logo.png" alt="Virginia James Designers Logo"></a></h2>
-            </div>
-
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="SERVICES.html">SERVICE</a></li>
-                     <li><a href="CATEGORIES.html">CATEGORIES</a></li>
-                    <li><a href="ABOUT.html">ABOUT</a></li>
-                    <li><a href="GALLERY.html">GALLERY</a></li>
-                    <li><a href="Order form.html">ORDER HERE</a></li>
-                </ul>
-            </nav>
+        <header class="site-header">
+    <div class="container-nav">
+        <a class="logo" href="index.html">
+            <span class="logo-mark">VJD</span>
+            <span class="orga">VIRGINIA &amp; JAMES DESIGNS<br><span class="slogan"><small>neat finish.good fitting.wear with confidence</small></span></span>
+        </a>
+        <nav class="nav-links" aria-label="main-navigation">
+            <a href="index.html">HOME</a>
+            <a href="SERVICES.html">SERVICES</a>
+            <a href="CATEGORIES.html">CATEGORIES</a>
+            <a href="ABOUT.html">ABOUT</a>
+            <a href="GALLERY.html">GALLERY</a>
+            <a href="Order form.html">ORDER</a>
+            
+        </nav>
+        <div class="right-nav">
+            <a class="nav-btn" href="GALLERY.html">Open Gallery</a>
+            <a class="nav-bttn" href="Order form.html">Order Design</a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+        </div>
+    </div>
+</header>
 
         <div class="content">
             <section id="contact-intro">
@@ -159,5 +167,6 @@ if (contactForm) {
     </footer>
     <link rel="stylesheet" href="back-to-top.css">
     <script src="back-to-top.js"></script>
+    <script src="menu-toggle.js"></script>
 </body>
 </html>
